@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <table id="invoiceTable">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="description[]" /></td>
+            <td><input type="text" name="price[]" /></td>
+            <td><input type="text" name="quantity[]" /></td>
+            <td><input type="text" name="total[]" readonly /></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total:</td>
+            <td><span id="total"></span></td>
+          </tr>
+          <tr>
+            <td colspan="3">Grand Total:</td>
+            <td><span id="grandTotal"></span></td>
+          </tr>
+        </tfoot>
+      </table>
+      <button id="addRow">Add Row</button>
+      
+    
+</body>
+</html>

@@ -1,0 +1,3 @@
+In this example, the showMessage function will be executed every 2 seconds (2000 milliseconds) using setInterval(). After 10 seconds (10000 milliseconds), the clearInterval() function is called to stop the interval. The messages are logged to the console for demonstration purposes.
+
+You can adjust the interval time and the duration based on your requirements.

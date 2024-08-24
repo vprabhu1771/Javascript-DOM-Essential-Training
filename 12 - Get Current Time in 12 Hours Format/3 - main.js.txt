@@ -1,0 +1,36 @@
+window.onload = function () {
+
+    // Function to update the time and display it
+    function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        // Determine whether it's AM or PM
+        var amOrPm = (hours < 12) ? "AM" : "PM";
+
+        // Convert hours to 12-hour format
+        hours = (hours % 12) || 12;
+
+        // Add leading zero if needed
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+        var timeString = hours + ":" + minutes + ":" + seconds + " " + amOrPm;
+
+        // Use innerText to update the content of the element
+        document.getElementById("currentTimeElement").innerText = timeString;
+
+        // Alternatively, you can use innerHTML
+        // document.getElementById("currentTimeElement").innerHTML = timeString;
+    }
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+
+    // Initial call to display the time immediately
+    updateTime();
+
+}

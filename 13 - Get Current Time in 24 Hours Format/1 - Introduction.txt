@@ -1,0 +1,7 @@
+You can use JavaScript to display the current time on a webpage using either the innerText or innerHTML properties. Here's an example of how you can do it:
+
+This example uses the setInterval function to update the time every second, and the updateTime function is responsible for getting the current time, formatting it, and updating the content of the specified HTML element with either innerText or innerHTML. You can choose either of them based on your specific requirements.
+
+If you want to display the time in 24-hour format but still include the AM or PM designation, you can modify the updateTime function accordingly. Here's the updated example:
+
+This example still includes the AM or PM designation based on whether the current hour is before or after noon, but it displays the time in 24-hour format (hours variable is not modified). You can adjust the code based on your specific requirements.

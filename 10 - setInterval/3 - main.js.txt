@@ -1,0 +1,11 @@
+window.onload = function () {
+
+    // Function to be executed
+    function showMessage() {
+        console.log('Hello, this message is repeated every 2 seconds.');
+    }
+
+    // Set interval to execute the function every 2000 milliseconds (2 seconds)
+    setInterval(showMessage, 2000);
+
+}

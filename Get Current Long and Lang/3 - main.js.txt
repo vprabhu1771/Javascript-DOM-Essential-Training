@@ -1,0 +1,46 @@
+window.onload = function () {
+
+    // Check if the Geolocation API is supported by the browser
+    if ("geolocation" in navigator) {
+
+        // Get the current position
+        navigator.geolocation.getCurrentPosition(
+
+            function (position) {
+
+                // Access the coordinates from the position object
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                // Display the coordinates on the page
+                document.body.innerHTML += "<p>Latitude: " + latitude + "</p>";
+                document.body.innerHTML += "<p>Longitude: " + longitude + "</p>";
+
+            },
+            function (error) {
+
+                // Handle errors
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        console.error("User denied the request for Geolocation.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        console.error("Location information is unavailable.");
+                        break;
+                    case error.TIMEOUT:
+                        console.error("The request to get user location timed out.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        console.error("An unknown error occurred.");
+                        break;
+                }
+            }
+
+        );
+    } 
+    else 
+    {
+        console.error("Geolocation is not supported by this browser.");
+    }
+
+}

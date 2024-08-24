@@ -1,0 +1,12 @@
+window.onload = function()
+{
+    
+    var currentBrowser = navigator.userAgent;
+
+    var result = "currentBrowser: " + currentBrowser; 
+
+    console.log(result);
+
+    document.getElementById("browser").innerText = result;
+
+}

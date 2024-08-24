@@ -1,0 +1,98 @@
+window.onload = function () {
+    // Get the table and button elements
+    const table = document.getElementById("invoiceTable");
+    const button = document.getElementById("addRow");
+
+    // Add event listener to the button
+    button.addEventListener("click", function () {
+        // Get the table body
+        const tableBody = table.getElementsByTagName("tbody")[0];
+
+        // Create a new row
+        const newRow = document.createElement("tr");
+
+        // Create the cells for the new row
+        const descriptionCell = document.createElement("td");
+        const priceCell = document.createElement("td");
+        const quantityCell = document.createElement("td");
+        const totalCell = document.createElement("td");
+
+        // Create the input fields for each cell
+        const descriptionInput = document.createElement("input");
+        descriptionInput.type = "text";
+        descriptionInput.name = "description[]";
+
+        const priceInput = document.createElement("input");
+        priceInput.type = "text";
+        priceInput.name = "price[]";
+
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "text";
+        quantityInput.name = "quantity[]";
+
+        const totalInput = document.createElement("input");
+        totalInput.type = "text";
+        totalInput.name = "total[]";
+        totalInput.readOnly = true;
+
+        // Add the input fields to the cells
+        descriptionCell.appendChild(descriptionInput);
+        priceCell.appendChild(priceInput);
+        quantityCell.appendChild(quantityInput);
+        totalCell.appendChild(totalInput);
+
+        // Add the cells to the new row
+        newRow.appendChild(descriptionCell);
+        newRow.appendChild(priceCell);
+        newRow.appendChild(quantityCell);
+        newRow.appendChild(totalCell);
+
+        // Add the new row to the table
+        tableBody.appendChild(newRow);
+    });
+
+    // Calculate the total and grand total
+    function calculateTotal() {
+        const totalElements = document.getElementsByName("total[]");
+
+        let total = 0;
+
+        // Loop through all the total elements and add up the values
+        for (let i = 0; i < totalElements.length; i++) {
+            total += parseFloat(totalElements[i].value);
+        }
+
+        // Update the total element
+        document.getElementById("total").textContent = total.toFixed(2);
+
+        // Calculate the grand total by adding 10% tax
+        const grandTotal = total * 1.1;
+
+        // Update the grand total element
+        document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+    }
+
+    // Add event listener to the table body
+    table.getElementsByTagName("tbody")[0].addEventListener("input", function (event) {
+
+        // Check if the input field is a price or quantity field
+        if (event.target.name === "price[]" || event.target.name === "quantity[]") {
+
+            const row = event.target.parentNode.parentNode;
+
+            const price = parseFloat(row.getElementsByTagName("input")[1].value);
+
+            const quantity = parseFloat(row.getElementsByTagName("input")[2].value);
+
+            const total = price * quantity;
+
+            row.getElementsByTagName("input")[3].value = total.toFixed(2);
+
+            calculateTotal();
+        }
+
+    });
+
+    // Call the calculateTotal function on page load
+    calculateTotal();
+}

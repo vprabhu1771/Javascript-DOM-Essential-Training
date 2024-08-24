@@ -1,0 +1,3 @@
+setInterval() is a function in JavaScript that allows you to repeatedly execute a function or a piece of code at a specified time interval. It takes two parameters: the function to be executed and the time interval (in milliseconds) between each execution.
+
+Here's a simple example of how to use setInterval() in JavaScript:

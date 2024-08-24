@@ -1,0 +1,7 @@
+window.onload = function () {
+
+    var content = document.getElementById("content");
+
+    console.log(content.innerText);
+
+}

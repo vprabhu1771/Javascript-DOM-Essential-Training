@@ -1,0 +1,10 @@
+In JavaScript, you can use the Geolocation API to retrieve the user's current location. The Geolocation API provides a simple method to obtain the latitude and longitude coordinates of the user's device. Here's a basic example of how you can use it:
+
+In this example:
+
+    We check if the Geolocation API is supported in the user's browser using the navigator.geolocation property.
+    If supported, we use the getCurrentPosition method to get the current position.
+    The success callback function receives a position object containing the coordinates (latitude and longitude), which we then access and log.
+    The error callback function handles different types of errors that might occur during the geolocation request.
+
+Keep in mind that the user needs to grant permission for the browser to access their location. Additionally, this code may not work on insecure origins (non-HTTPS) in some modern browsers, as they have tightened security requirements for certain features, including geolocation.
